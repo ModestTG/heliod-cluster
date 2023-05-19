@@ -20,7 +20,7 @@ spec:
     persistence:
       defaultClassReplicaCount: 2
     defaultSettings:
-      backupTarget: s3://nas.lan.ewhomelab.com:9000@dummyregion/longhorn-data
+      backupTarget: s3://longhorn-data@dummyregion/
       backupTargetCredentialSecret: longhorn-backup-secret
       defaultReplicaCount: 2
       defaultLonghornStaticStorageClass: longhorn
