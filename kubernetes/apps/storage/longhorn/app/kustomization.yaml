@@ -4,4 +4,4 @@ kind: Kustomization
 namespace: storge
 resources:
   - ./helmrelease.yaml
-  - ./secrets.sops.yaml
+  - ./secret.sops.yaml
