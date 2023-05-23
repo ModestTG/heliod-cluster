@@ -41,7 +41,6 @@ spec:
         matchNames:
           - default
           - storage
-          - monitoring
     ingress:
       main:
         enabled: true
