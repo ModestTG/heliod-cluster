@@ -18,3 +18,4 @@ resources:
   - ./weave-gitops.yaml
   - ./longhorn.yaml
   - ./prometheus-community.yaml
+  - ./tyzbit.yaml
