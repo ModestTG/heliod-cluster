@@ -31,7 +31,7 @@ spec:
       darkTheme: lime
       alwaysTargetBlank: true
       showGreeting: false
-      showAppGroups: false
+      showAppGroups: true
       showAppStatus: true
       showBookmarkGroups: false
       showGlobalBookmarks: false
@@ -40,6 +40,7 @@ spec:
       namespaceSelector:
         matchNames:
           - automation
+          - flux-system
           - monitoring
           - storage
     ingress:
