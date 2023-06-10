@@ -5,7 +5,7 @@ metadata:
   name: database-ext-postgres-operator
   namespace: flux-system
 spec:
-  path: ./kubernetes/apps/default/ext-postgres-operator/app
+  path: ./kubernetes/apps/database/ext-postgres-operator/app
   prune: true
   sourceRef:
     kind: GitRepository
