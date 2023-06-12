@@ -33,7 +33,14 @@ spec:
       "Apps":
         snapshot:
           - interval: 1h
+            retain: 6
+        backup:
+          - interval: 1h
+            retain: 7
+      "Db":
+        snapshot:
+          - interval: 1h
             retain: 24
         backup:
-          - interval: 24h
+          - interval: 1d
             retain: 7
