@@ -19,4 +19,4 @@ resources:
   - ./longhorn.yaml
   - ./prometheus-community.yaml
   - ./tyzbit.yaml
-  # - ./ext-postgres-operator.yaml
+  - ./cloudnative-pg.yaml
