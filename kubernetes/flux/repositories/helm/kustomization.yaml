@@ -20,3 +20,4 @@ resources:
   - ./prometheus-community.yaml
   - ./tyzbit.yaml
   - ./cloudnative-pg.yaml
+  - ./emberstack-charts.yaml
