@@ -35,7 +35,7 @@ spec:
           - interval: 1h
             retain: 6
         backup:
-          - interval: 1h
+          - interval: 1d
             retain: 7
       "Db":
         snapshot:

@@ -1,0 +1,33 @@
+---
+- name: DNS Fix
+  hosts:
+    - master
+    - worker
+  become: true
+  gather_facts: true
+  any_errors_fatal: true
+  pre_tasks:
+    - name: Pausing for 5 seconds...
+      ansible.builtin.pause:
+        seconds: 5
+  tasks:
+    - name: Fix DNS for ubuntu
+      when: ansible_facts['distribution'] == 'Ubuntu'
+      block:
+        - name: Stop and disable service which messes with DNS
+          ansible.builtin.service:
+            name: "systemd-resolved"
+            state: stopped
+            enabled: false
+        - name: Delete link to the systemd-resolved resolv.conf
+          ansible.builtin.file:
+            path: /etc/resolv.conf
+            state: absent
+        - name: Create empty resolv.conf
+          ansible.builtin.file:
+            path: /etc/resolv.conf
+            state: touch
+        - name: Setup nameserver
+          ansible.builtin.blockinfile:
+            dest: /etc/resolv.conf
+            content: "nameserver 10.0.0.2"
