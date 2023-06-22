@@ -12,7 +12,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   nfs:
     server: "${SECRET_NFS_SERVER}"
-    path: /mnt/AuxPool/csi-driver-nfs/nextcloud
+    path: /mnt/AuxPool/K8S-NFS/nextcloud
   mountOptions:
     - nfsvers=4.2
     - nconnect=8
