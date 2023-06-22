@@ -8,6 +8,7 @@ metadata:
 spec:
   dependsOn:
     - name: database-cloudnative-pg-cluster
+    - name: storage-longhorn-recurring-jobs
   path: ./kubernetes/apps/default/nextcloud/app
   prune: true
   sourceRef:

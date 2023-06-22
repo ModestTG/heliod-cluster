@@ -102,10 +102,10 @@ spec:
             - *host
     persistence:
       enabled: true
-      existingClaim: nextcloud
+      existingClaim: nextcloud-config
       nextcloudData:
         enabled: true
-        existingClaim: nextcloud-nfs
+        existingClaim: nextcloud-data
         accessMode: ReadWriteMany
     # this seems to be required for nextcloud initialization which takes a long time
     startupProbe:
