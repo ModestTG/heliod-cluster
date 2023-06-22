@@ -22,3 +22,4 @@ resources:
   - ./cloudnative-pg.yaml
   - ./emberstack-charts.yaml
   - ./nextcloud.yaml
+  - ./csi-driver-nfs.yaml
