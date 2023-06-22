@@ -21,3 +21,4 @@ resources:
   - ./tyzbit.yaml
   - ./cloudnative-pg.yaml
   - ./emberstack-charts.yaml
+  - ./nextcloud.yaml
