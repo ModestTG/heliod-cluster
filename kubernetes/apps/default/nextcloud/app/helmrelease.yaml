@@ -59,6 +59,20 @@ spec:
         fsGroup: 1001
         runAsNonRoot: true
         fsGroupChangePolicy: "OnRootMismatch"
+      configs:
+        proxy.config.php: |-
+          <?php
+          $CONFIG = array (
+            'trusted_proxies' =>
+            array(
+                0 => '10.0.0.0/8',
+                1 => 'cloud.${SECRET_DOMAIN}'
+            ),
+            'forwarded_for_headers' =>
+            array (
+              0 => 'HTTP_X_FORWARDED_FOR',
+            ),
+          );
     internalDatabase:
       enabled: false
     externalDatabase:
