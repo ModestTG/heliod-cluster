@@ -1,15 +1,16 @@
 ---
+# yaml-language-server: $schema=https://kubernetes-schemas.haraldkoch.ca/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: nextcloud
   namespace: default
 spec:
-  interval: 30m
+  interval: 15m
   chart:
     spec:
       chart: nextcloud
-      version: 3.4.3
+      version: 3.5.13
       sourceRef:
         kind: HelmRepository
         name: nextcloud
@@ -34,7 +35,7 @@ spec:
       datadir: /var/www/data
       # extraEnv:
       #   - name: REDIS_HOST
-      #     value: redis-lb.default.svc.cluster.local
+      #     value: redis-lb.dbms.svc.cluster.local.
       #   - name: REDIS_HOST_PORT
       #     value: "6379"
       existingSecret:
@@ -44,34 +45,56 @@ spec:
       # mail:
       #   enabled: true
       #   fromAddress: admin
-      #   domain: buhl.casa
+      #   domain: ${CLUSTER_DOMAIN}
       #   smtp:
-      #     host: opnsense.turbo.ac
-      #     port: 25
+      #     host: ${SECRET_SMTP_RELAY}
+      #     port: ${SECRET_SMTP_RELAY_PORT}
       #     authtype: NONE
       #     name: ""
       #     password: ""
-    securityContext:
-      runAsUser: 82
-      runAsGroup: 82
-      fsGroupChangePolicy: "OnRootMismatch"
+      # securityContext:
+      #   runAsUser: 1022
+      #   runAsGroup: 1022
+      #   runAsNonRoot: true
     internalDatabase:
       enabled: false
     externalDatabase:
       enabled: true
       type: postgresql
-      host: postgres-rw.database.svc.cluster.local:5432
-      database: nextcloud
+      host: postgres-rw.database.svc.cluster.local
     ingress:
       enabled: true
-      className: "nginx"
+      className: nginx
       annotations:
+        external-dns.home.arpa/enabled: "true"
+        hajimari.io/icon: mdi:dropbox
         nginx.ingress.kubernetes.io/proxy-body-size: "10G"
         nginx.ingress.kubernetes.io/proxy-buffering: "off"
         nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
         nginx.ingress.kubernetes.io/server-snippet: |-
           server_tokens off;
           proxy_hide_header X-Powered-By;
+
+          rewrite ^/.well-known/webfinger /public.php?service=webfinger last;
+          rewrite ^/.well-known/host-meta /public.php?service=host-meta last;
+          rewrite ^/.well-known/host-meta.json /public.php?service=host-meta-json;
+          location = /.well-known/carddav {
+            return 301 $scheme://$host/remote.php/dav;
+          }
+          location = /.well-known/caldav {
+            return 301 $scheme://$host/remote.php/dav;
+          }
+          location = /robots.txt {
+            allow all;
+            log_not_found off;
+            access_log off;
+          }
+          location ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)/ {
+            deny all;
+          }
+          location ~ ^/(?:autotest|occ|issue|indie|db_|console) {
+            deny all;
+          }
       path: /
       pathType: Prefix
       tls:
@@ -79,11 +102,19 @@ spec:
             - *host
     persistence:
       enabled: true
-      existingClaim: nextcloud-config
+      existingClaim: nextcloud
       nextcloudData:
         enabled: true
         existingClaim: nextcloud-nfs
         accessMode: ReadWriteMany
+    # this seems to be required for nextcloud initialization which takes a long time
+    startupProbe:
+      enabled: true
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      timeoutSeconds: 5
+      failureThreshold: 30
+      successThreshold: 1
   valuesFrom:
     - targetPath: externalDatabase.user
       kind: Secret
@@ -93,3 +124,7 @@ spec:
       kind: Secret
       name: nextcloud-secret
       valuesKey: database-password
+    - targetPath: externalDatabase.database
+      kind: Secret
+      name: nextcloud-secret
+      valuesKey: nextcloud-database

@@ -2,11 +2,11 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: truenas-nfs-retain
+  name: truenas-nfs
 provisioner: nfs.csi.k8s.io
 parameters:
   server: "${SECRET_NFS_SERVER}"
-  share: /mnt/AuxPool/csi-driver-nfs-retain
+  share: /mnt/AuxPool/csi-driver-nfs
 reclaimPolicy: Retain
 volumeBindingMode: Immediate
 mountOptions:
