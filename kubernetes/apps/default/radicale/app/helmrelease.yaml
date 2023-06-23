@@ -61,9 +61,3 @@ spec:
         subPath: USERS
         mountPath: /config/users
         readOnly: true
-    resources:
-      requests:
-        cpu: 15m
-        memory: 79M
-      limits:
-        memory: 79M
