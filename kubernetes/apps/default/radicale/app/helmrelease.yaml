@@ -34,6 +34,9 @@ spec:
         annotations:
           # external-dns.alpha.kubernetes.io/target: ingress.${EXTERNAL_DOMAIN}
           nginx.ingress.kubernetes.io/proxy-body-size: 4G
+          nginx.ingress.kubernetes.io/enable-cors: "true"
+          nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
+          nginx.ingress.kubernetes.io/cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS, PROPFIND"
           hajimari.io/icon: mdi:calendar-export-outline
         hosts:
           - host: &host "radicale.${SECRET_DOMAIN}"
