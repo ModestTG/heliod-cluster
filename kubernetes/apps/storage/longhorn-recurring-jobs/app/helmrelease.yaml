@@ -31,16 +31,10 @@ spec:
       staleReplicaTimeout: "30"
     groups:
       "Apps":
-        snapshot:
-          - interval: 1h
-            retain: 6
         backup:
           - interval: 1d
-            retain: 7
+            retain: 14
       "Db":
-        snapshot:
-          - interval: 1h
-            retain: 24
         backup:
           - interval: 1d
             retain: 7
