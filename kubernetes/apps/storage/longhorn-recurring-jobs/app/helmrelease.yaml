@@ -34,7 +34,3 @@ spec:
         backup:
           - interval: 1d
             retain: 14
-      "Db":
-        backup:
-          - interval: 1d
-            retain: 7
