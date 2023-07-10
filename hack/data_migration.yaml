@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  namespace: monitoring  # namespace where the pvc's exist
+  namespace: database  # namespace where the pvc's exist
   name: volume-migration
 spec:
   completions: 1
@@ -30,7 +30,7 @@ spec:
       volumes:
         - name: old-vol
           persistentVolumeClaim:
-            claimName: wireshark-appdata # change to data source pvc
+            claimName: pgbackup # change to data source pvc
         - name: new-vol
           persistentVolumeClaim:
-            claimName: wireshark-appdata-new # change to data target pvc
+            claimName: pvc-e8609e0f-2130-457f-9596-3529741100c5 # change to data target pvc
