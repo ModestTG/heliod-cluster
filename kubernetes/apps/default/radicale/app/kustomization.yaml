@@ -14,5 +14,5 @@ generatorOptions:
     kustomize.toolkit.fluxcd.io/substitute: disabled
 resources:
   - secret.sops.yaml
-  - pvc.yaml
+  # - pvc.yaml
   - helmrelease.yaml
