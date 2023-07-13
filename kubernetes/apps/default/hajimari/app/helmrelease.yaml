@@ -45,6 +45,7 @@ spec:
           - automation
           - default
           - flux-system
+          - media
           - monitoring
           - storage
     ingress:
