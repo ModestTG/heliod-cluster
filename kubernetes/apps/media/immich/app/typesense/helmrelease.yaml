@@ -62,5 +62,5 @@ spec:
       - name: config
         mountPath: /config
         accessMode: ReadWriteOnce
-        size: 25Gi
+        size: 30Gi
         storageClass: longhorn-apps
