@@ -52,7 +52,7 @@ spec:
             path: /health
             port: *port
           initialDelaySeconds: 0
-          periodSeconds: 10
+          periodSeconds: 3000
           timeoutSeconds: 1
           failureThreshold: 3
       readiness: *probes
