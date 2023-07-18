@@ -64,12 +64,6 @@ spec:
         server: "${SECRET_NFS_SERVER}"
         path: /mnt/AuxPool/K8S-NFS/immich-photos
         mountPath: /usr/src/app/upload
-      tmp:
-        enabled: true
-        type: nfs
-        server: "${SECRET_NFS_SERVER}"
-        path: /mnt/AuxPool/K8S-NFS/tmp
-        mountPath: /tmp/pics
     topologySpreadConstraints:
       - maxSkew: 1
         topologyKey: kubernetes.io/hostname
