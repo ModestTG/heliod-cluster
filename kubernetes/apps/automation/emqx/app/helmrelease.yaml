@@ -36,6 +36,8 @@ spec:
       EMQX_DASHBOARD__DEFAULT_USERNAME: admin
     service:
       type: LoadBalancer
+      annotations:
+        metallb.universe.tf/loadBalancerIPs: 10.0.20.203
       externalTrafficPolicy: Cluster
     ingress:
       dashboard:
