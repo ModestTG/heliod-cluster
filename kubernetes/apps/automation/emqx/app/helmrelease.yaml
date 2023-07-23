@@ -54,18 +54,6 @@ spec:
         tls:
           - hosts:
               - *host1
-      # mqtt:
-      #   enabled: true
-      #   ingressClassName: nginx
-      #   annotations:
-      #     hajimari.io/enable: "false"
-      #   path: /
-      #   pathType: Prefix
-      #   hosts:
-      #     - &host2 mqtt.${SECRET_DOMAIN}
-      #   tls:
-      #     - hosts:
-      #         - *host2
     metrics:
       enabled: true
     persistence:
