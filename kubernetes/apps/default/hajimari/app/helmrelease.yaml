@@ -48,6 +48,10 @@ spec:
           - media
           - monitoring
           - storage
+      customApps:
+        - name: NAS
+          url: http://nas.lan.ewhomelab.com
+          icon: simple-icons:truenas
     ingress:
       main:
         enabled: true
