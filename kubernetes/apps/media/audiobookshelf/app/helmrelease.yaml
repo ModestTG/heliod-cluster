@@ -60,12 +60,18 @@ spec:
         enabled: true
         mountPath: /config
         existingClaim: audiobookshelf-config
-      media:
+      audiobooks:
         enabled: true
         type: nfs
         server: ${SECRET_NFS_SERVER}
         path: /mnt/AuxPool/K8S-NFS/audiobookshelf/audiobooks
         mountPath: /audiobooks
+      podcasts:
+        enabled: true
+        type: nfs
+        server: ${SECRET_NFS_SERVER}
+        path: /mnt/AuxPool/K8S-NFS/audiobookshelf/podcasts
+        mountPath: /podcasts
       cache:
         enabled: true
         mountPath: /.npm
