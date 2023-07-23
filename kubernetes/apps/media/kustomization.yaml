@@ -5,4 +5,3 @@ resources:
   - ./namespace.yaml
   - ./audiobookshelf/ks.yaml
   - ./immich/ks.yaml
-  - ./podgrab/ks.yaml
