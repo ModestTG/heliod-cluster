@@ -64,7 +64,7 @@ spec:
         enabled: true
         type: nfs
         server: ${SECRET_NFS_SERVER}
-        path: /mnt/AuxPool/K8S-NFS/audiobookshelf
+        path: /mnt/AuxPool/K8S-NFS/audiobookshelf/audiobooks
         mountPath: /audiobooks
       cache:
         enabled: true
