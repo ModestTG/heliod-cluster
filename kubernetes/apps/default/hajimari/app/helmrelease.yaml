@@ -36,7 +36,7 @@ spec:
       showGreeting: false
       showAppGroups: true
       showAppStatus: true
-      showBookmarkGroups: false
+      showBookmarkGroups: true
       showGlobalBookmarks: false
       showAppUrls: false
       defaultEnable: true
@@ -48,10 +48,12 @@ spec:
           - media
           - monitoring
           - storage
-      customApps:
-        - name: NAS
-          url: http://nas.lan.ewhomelab.com
-          icon: simple-icons:truenas
+      globalBookmarks:
+        - group: Github
+          bookmarks:
+            - name: Heliod Cluster
+              url: "https://github.com/ModestTG/heliod-cluster"
+              icon: simple-icons:github
     ingress:
       main:
         enabled: true
