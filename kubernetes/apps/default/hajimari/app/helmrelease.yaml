@@ -54,6 +54,9 @@ spec:
             - name: Heliod Cluster
               url: "https://github.com/ModestTG/heliod-cluster"
               icon: simple-icons:github
+            - name: Flux Cluster Template
+              url: "https://github.com/onedr0p/flux-cluster-template"
+              icon: simple-icons:github
     ingress:
       main:
         enabled: true
