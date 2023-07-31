@@ -5,5 +5,5 @@ resources:
   - ./namespace.yaml
   - ./hajimari/ks.yaml
   - ./filebrowser/ks.yaml
-  - ./radicale/ks.yaml
+  # - ./radicale/ks.yaml
   - ./vaultwarden/ks.yaml
