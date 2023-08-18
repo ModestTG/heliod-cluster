@@ -31,7 +31,7 @@ spec:
         maxParallel: 8
       destinationPath: s3://postgresql-data/
       endpointURL: http://10.0.0.8:9000
-      serverName: postgres
+      serverName: *previous-cluster
       s3Credentials:
         accessKeyId:
           name: longhorn-backup-secret
