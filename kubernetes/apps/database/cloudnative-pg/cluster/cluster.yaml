@@ -31,7 +31,7 @@ spec:
         maxParallel: 8
       destinationPath: s3://postgresql-data/
       endpointURL: http://10.0.0.8:9000
-      serverName: postgres-v1
+      serverName: postgres
       s3Credentials:
         accessKeyId:
           name: longhorn-backup-secret
@@ -50,8 +50,8 @@ spec:
         endpointURL: http://10.0.0.8:9000
         s3Credentials:
           accessKeyId:
-            name: cloudnative-pg-secret
+            name: longhorn-backup-secret
             key: AWS_ACCESS_KEY_ID
           secretAccessKey:
-            name: cloudnative-pg-secret
+            name: longhorn-backup-secret
             key: AWS_SECRET_ACCESS_KEY
