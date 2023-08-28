@@ -1,0 +1,34 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ./bitnami.yaml
+  - ./bjw-s.yaml
+  - ./cilium.yaml
+<<<<<<< HEAD:kubernetes/flux/repositories/helm/kustomization.yaml
+  - ./cloudnative-pg.yaml
+  - ./csi-driver-nfs.yaml
+  - ./emberstack-charts.yaml
+  - ./emqx.yaml
+=======
+  - ./coredns.yaml
+  - ./csi-driver-nfs.yaml
+>>>>>>> 2023.8.0:bootstrap/templates/kubernetes/flux/repositories/helm/kustomization.yaml.j2
+  - ./external-dns.yaml
+  - ./grafana.yaml
+  - ./hajimari.yaml
+  - ./ingress-nginx.yaml
+  - ./jetstack.yaml
+  - ./k8s-gateway.yaml
+  - ./kubernetes-dashboard.yaml
+<<<<<<< HEAD:kubernetes/flux/repositories/helm/kustomization.yaml
+  - ./longhorn.yaml
+  - ./metallb.yaml
+=======
+>>>>>>> 2023.8.0:bootstrap/templates/kubernetes/flux/repositories/helm/kustomization.yaml.j2
+  - ./metrics-server.yaml
+  - ./nextcloud.yaml
+  - ./prometheus-community.yaml
+  - ./stakater.yaml
+  - ./tyzbit.yaml
+  - ./weave-gitops.yaml

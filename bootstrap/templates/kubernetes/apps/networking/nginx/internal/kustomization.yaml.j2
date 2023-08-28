@@ -1,0 +1,11 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: networking
+resources:
+<<<<<<< HEAD:kubernetes/apps/networking/ingress-nginx/certificates/kustomization.yaml
+  - ./staging.yaml
+  - ./production.yaml
+=======
+  - ./helmrelease.yaml
+>>>>>>> 2023.8.0:bootstrap/templates/kubernetes/apps/networking/nginx/internal/kustomization.yaml.j2

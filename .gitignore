@@ -3,7 +3,6 @@
 Thumbs.db
 # k8s
 kubeconfig
-# vscode-sops
 .decrypted~*.yaml
 .config.env
 *.agekey
@@ -12,3 +11,4 @@ kubeconfig
 # Ansible
 xanmanning.k3s*
 hack/
+.venv*

@@ -1,0 +1,17 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ./namespace.yaml
+<<<<<<< HEAD:kubernetes/apps/default/kustomization.yaml
+  - ./hajimari/ks.yaml
+  - ./filebrowser/ks.yaml
+  - ./radicale/ks.yaml
+  - ./vaultwarden/ks.yaml
+=======
+  - ./cloudflared/ks.yaml
+  - ./echo-server/ks.yaml
+  - ./external-dns/ks.yaml
+  - ./k8s-gateway/ks.yaml
+  - ./nginx/ks.yaml
+>>>>>>> 2023.8.0:bootstrap/templates/kubernetes/apps/networking/kustomization.yaml.j2
