@@ -40,7 +40,7 @@ spec:
         reloader.stakater.com/auto: "true"
     image:
       repository: ghcr.io/onedr0p/home-assistant
-      tag: 2023.8.3@sha256:c431306c7a24c8d197e907134a905bc1d756bd6e5940ff2af05c60c675bc3192
+      tag: 2023.10.4@sha256:369c6f43a75c68333d694297f899803829ecdadb7a6aa16be3452897a556b3cd
     env:
       TZ: "${TIMEZONE}"
       POSTGRES_HOST: postgres-rw.database.svc.cluster.local
